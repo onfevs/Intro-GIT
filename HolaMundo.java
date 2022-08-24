@@ -1,10 +1,10 @@
 class HolaMundo {
     public static void main(String[] args) {
         String nombre;
-        Saludar (nombre:"Jorge")
+        saludar (nombre:"Jorge");
     }
 
-    public static void Saludar (String nombre){
-        System.out.println("Hola" + nombre + "!")
+    public static void saludar (String nombre){
+        System.out.println("Hola" + nombre + "!");
     }
 }
