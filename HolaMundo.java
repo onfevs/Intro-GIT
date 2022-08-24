@@ -4,7 +4,7 @@ class HolaMundo {
         saludar (nombre:"Jorge");
     }
 
-    public static void saludar (String nombre){
+    public static void saludar(String nombre) {
         System.out.println("Hola" + nombre + "!");
     }
 }
