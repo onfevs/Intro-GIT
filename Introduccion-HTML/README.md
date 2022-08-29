@@ -58,3 +58,4 @@ Y luego se suben a la main
 
 git checkout main
 git merge dev
+git push origin main
