@@ -56,6 +56,6 @@ Y luego se suben a la main
 
 ## Unir ramas
 
-git checkout main
-git merge dev
-git push origin main
+-- git checkout main
+-- git merge dev
+-- git push origin main
