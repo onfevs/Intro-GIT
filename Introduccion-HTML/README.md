@@ -31,4 +31,10 @@ Div es un contenedor, tratar de no usarlo mucho. Mejor usar un section
 
 Para relacionar un label con un input se debe colocar un ID en el input y un label con un FOR con el mismo nombre label for="input_email", input id"input_mail"
 
-Para crear botones con BUTTOM type submit + nombre del boton 
+Para crear botones con BUTTON type submit + nombre del boton 
+
+### Clonar Repositorios.
+
+Se abre el terminal
+CD espacio arrastrar carpeta que se creo para copiar el repositorio
+git clone + url
