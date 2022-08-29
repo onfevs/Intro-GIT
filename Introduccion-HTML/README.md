@@ -1,4 +1,4 @@
-## Introduccion a HTML
+a## Introduccion a HTML
 
 Es un lenguaje de etiquetas, sirve para darle estructura, como menu, contenido en la parte izquierda, derecha, pie de pagina, listas etc...
 
@@ -12,6 +12,12 @@ IMG para cargar imagenes SRC es la ruta y el WIDTH es para ajustar tamano no nec
 
 FORM + Label + Input
 
+meta charset="UTF-8" - 16 para que soporte enes y tildes
+
+a href = "" > Es para redirigir 
+(<a href ="">Nombre</a>)
+
+Para generar espacios &nbsp; entre href
 ## Comandos
 
 Para hacer comentarios mas rapidos se puede usar CTRL + K C o CTRL + /
@@ -35,6 +41,20 @@ Para crear botones con BUTTON type submit + nombre del boton
 
 ### Clonar Repositorios.
 
+Se copia el SSH del GITHUB del que queremos clonar.
 Se abre el terminal
 CD espacio arrastrar carpeta que se creo para copiar el repositorio
 git clone + url
+
+Siempre se debe hacer un pull y luego un push
+
+Primero un git status
+un add .
+un git commit 
+un push en la rama donde estan
+Y luego se suben a la main
+
+## Unir ramas
+
+git checkout main
+git merge dev
