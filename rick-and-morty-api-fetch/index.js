@@ -12,25 +12,26 @@ async function obtener_personajes(url_api) {  //async function se vuelve asincro
 function mostrar_personajes (personajes) {
     let cards = ''
     for (let i = 0; i < personajes.length; i++) {
-        cards += `
+        cards += ` 
         <article class="card">
-            <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" />
+            <img src="${personajes[i].image}" />
             <div class="body-card">
-                <h3>Rick Sanchez</h3>
-                <span>Status: Alive</span>
-                <span>Specie: Human</span>
-                <span>Gender: Male</span>
-                <span>Origin: Earth</span>
+                <h3>${personajes[i].name}</h3>
+                <span>Status: ${personajes[i].status}</span>
+                <span>Specie: ${personajes[i].species}</span>
+                <span>Gender: ${personajes[i].gender}</span>
+                <span>Origin: ${personajes[i].origin.name}</span>
             </div>
         </article>
         `
     }
     // Adiccionar tarjetas al section
-    document.getElementById('section-card').innerHTML = cards
+    document.getElementById('section-cards').innerHTML = cards
 }
 
-function main(){
+async function main (){
     const url = 'https://rickandmortyapi.com/api/character'
-    obtener_personajes(url)
+    const personajes = await obtener_personajes(url)
+    mostrar_personajes(personajes)
 }
 main()
