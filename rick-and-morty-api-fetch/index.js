@@ -17,13 +17,14 @@ function mostrar_personajes (personajes) {
             <img src="${personajes[i].image}" />
             <div class="body-card">
                 <h3>${personajes[i].name}</h3>
-                <span>Status: ${personajes[i].status}</span>
+                <span>Status: ${personajes[i].status}</span> 
                 <span>Specie: ${personajes[i].species}</span>
                 <span>Gender: ${personajes[i].gender}</span>
                 <span>Origin: ${personajes[i].origin.name}</span>
             </div>
         </article>
         `
+        //Modificar informacion se colocan simbolo pesos se revisa la base y se adiccionan los campos.
     }
     // Adiccionar tarjetas al section
     document.getElementById('section-cards').innerHTML = cards
