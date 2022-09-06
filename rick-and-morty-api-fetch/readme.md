@@ -4,3 +4,7 @@
 - DOM
 - FETCH
 - END Point
+
+## Despliegue de la pagina web consumiendo api
+
+- https://ricky-y-morty.netlify.app/ click here.
