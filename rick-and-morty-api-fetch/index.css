@@ -72,11 +72,12 @@ header{
 }
 
 .card h3{
-    font-size: 20px;
+    font-size: 25px;
     margin: 10px;
     text-decoration: underline;
     cursor: pointer;
     text-align: center;
+    font-family: 'Patrick Hand', cursive;
 }
 
 .card span{
