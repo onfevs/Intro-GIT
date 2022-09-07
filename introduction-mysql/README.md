@@ -8,3 +8,6 @@
 - - https://dev.mysql.com/downloads/windows/installer/8.0.html
 - For mac or linux Download and install:
 - - https://dev.mysql.com/downloads/mysql/
+
+- ORM
+- Object Relational Model  (Manipular objetos) hibernate framework. Relaciona java con la base de datos.
