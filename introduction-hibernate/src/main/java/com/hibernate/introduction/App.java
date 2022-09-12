@@ -23,8 +23,8 @@ public class App {
         session.beginTransaction();
         try {
             /**** Crear objetos *****/
-            // Mascota mascota_1 = new Mascota("Niño", "Quintero", "Criollo",
-            // "http://fake-photo", "Sobrepeso");
+            // Mascota mascota_4 = new Mascota("Copo", "Giraldo", "FreshPudoll",
+            // "http://fake-photo", "Blanco");
             // Mascota mascota_2 = new Mascota("Dulce", "Medina", "Bulldog",
             // "http://fake-photo", "Ninguna");
             // Mascota mascota_3 = new Mascota("Firulais", "Jimenez", "Criollo",
