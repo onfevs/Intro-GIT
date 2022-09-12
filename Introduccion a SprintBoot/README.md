@@ -11,7 +11,7 @@
 - Mysql
 - Hibernate
 - Instalar dependecia de SprintBoot
-- 
+- # Dependecia 
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-web</artifactId>
