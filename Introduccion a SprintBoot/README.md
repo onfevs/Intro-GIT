@@ -20,14 +20,15 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.7.3</version>
         </dependency>
-- package com.hibernate.introduction;
+- Codigo en la App.java
+            package com.hibernate.introduction;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+            import org.springframework.boot.SpringApplication;
+            import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class App {
-    public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
-    }
-}
+            @SpringBootApplication
+            public class App {
+                public static void main(String[] args) {
+                    SpringApplication.run(App.class, args);
+                }
+            }
