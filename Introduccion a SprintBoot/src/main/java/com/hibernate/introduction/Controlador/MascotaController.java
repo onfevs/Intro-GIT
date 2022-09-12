@@ -1,4 +1,4 @@
-package com.hibernate.MascotaController;
+package com.hibernate.introduction.Controlador;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,13 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.hibernate.introduction.modelo.Mascota;
 
+@RestController("/mascotas")
 public class MascotaController {
 
     // ATRIBUTOS
@@ -21,6 +25,11 @@ public class MascotaController {
                 .configure("cfg.xml")
                 .addAnnotatedClass(Mascota.class)
                 .buildSessionFactory();
+    }
+
+    @GetMapping
+    public String getMascotas() {
+        return "Hola mundo utilizando Spring Boot";
     }
 
     public Session openSession() {
@@ -45,8 +54,6 @@ public class MascotaController {
         session.close();
         return resp;
     }
-
-    // Obtener lista de mascotas por la raza
 
     public List<Mascota> getXRaza(String raza) {
         List<Mascota> mascotas = new ArrayList<>();
