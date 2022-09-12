@@ -84,7 +84,7 @@ public class App {
             // session.merge(mascota);
             // session.getTransaction().commit();
 
-            // List<Mascota> mascotas = session.createQuery("from mascotas",
+            // List<Mascota> mascotas = session.createQuery("from Mascota",
             // Mascota.class).list();
 
             // for (int i = 0; i < mascotas.size(); i++) {
