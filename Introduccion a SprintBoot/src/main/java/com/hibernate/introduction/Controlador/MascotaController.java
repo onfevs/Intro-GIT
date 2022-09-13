@@ -3,16 +3,23 @@ package com.hibernate.introduction.Controlador;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hibernate.introduction.modelo.Mascota;
 
-@RestController("/mascotas")
+@RestController
+@RequestMapping("/mascotas")
 public class MascotaController {
 
     // ATRIBUTOS
@@ -27,35 +34,34 @@ public class MascotaController {
                 .buildSessionFactory();
     }
 
-    @GetMapping
-    public String getMascotas() {
-        return "Hola mundo utilizando Spring Boot";
-    }
-
     public Session openSession() {
         Session session = factory.openSession();
         session.beginTransaction();
         return session;
     }
 
-    // ACCIONES
-    public String create(String nombre, String apellido, String raza, String foto, String observacion) {
-        String resp = "";
+    /*
+     * @GetMapping
+     * public String getMascotas() {
+     * return "Hola mundo utilizando Spring Boot";
+     * }
+     */
+
+    @GetMapping
+    public List<Mascota> getMascotas() {
+        List<Mascota> mascotas = new ArrayList<>();
         Session session = openSession();
         try {
-            Mascota mascota = new Mascota(nombre, apellido, raza, foto, observacion);
-            session.persist(mascota);
-            session.getTransaction().commit();
-            resp = "Mascota creada con éxito";
+            mascotas = session.createQuery("from Mascota", Mascota.class).list();
+            session.close();
         } catch (Exception e) {
             e.printStackTrace();
-            resp = e.getMessage();
         }
-        session.close();
-        return resp;
+        return mascotas;
     }
 
-    public List<Mascota> getXRaza(String raza) {
+    @GetMapping("/{raza}")
+    public List<Mascota> getXRaza(@PathVariable(name = "raza") String raza) {
         List<Mascota> mascotas = new ArrayList<>();
         Session session = openSession();
         try {
@@ -67,6 +73,27 @@ public class MascotaController {
             e.printStackTrace();
         }
         return mascotas;
+    }
+
+    @GetMapping("/commons")
+    public String getNombreApellidoComun(@RequestParam String nombre, @RequestParam String apellido) {
+        return "Nombre: " + nombre + " - Apellido: " + apellido;
+    }
+
+    @PostMapping
+    public String create(@RequestBody Mascota mascota) {
+        String resp = "";
+        Session session = openSession();
+        try {
+            session.persist(mascota);
+            session.getTransaction().commit();
+            resp = "Mascota creada con éxito";
+        } catch (Exception e) {
+            e.printStackTrace();
+            resp = e.getMessage();
+        }
+        session.close();
+        return resp;
     }
 
 }
