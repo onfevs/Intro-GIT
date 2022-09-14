@@ -2,7 +2,7 @@
 	/*border: 1px solid red;*/
 	display: flex;
 	justify-content: center;
-	margin-bottom: 80px;
+	margin: 20px 0px 20px 0px;
 }
 
 #section-table {
@@ -18,13 +18,24 @@
 tr,
 td,
 th {
-	border: 1px solid black;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	text-align: center;
+	justify-content: center;
 }
 
-#section-img-home img {
+/* #section-img-home img {
 	animation: mover 2s infinite;
+} */
+
+#table tbody tr img {
+	width: 150px;
+	border-radius: 5px;
 }
-@keyframes mover {
+
+td{
+	text-align: center;
+}
+/* @keyframes mover {
 	0% {
 		transform: translateY(0);
 	}
@@ -34,4 +45,4 @@ th {
 	80% {
 		transform: translateX(50px);
 	}
-}
+} */
