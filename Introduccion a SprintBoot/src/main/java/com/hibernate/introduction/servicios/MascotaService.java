@@ -105,7 +105,7 @@ public class MascotaService {
         try {
             session.merge(mascota);
             session.getTransaction().commit();
-            message = "Mascota actualizada con exito";
+            message = "Mascota actualizada con éxito";
         } catch (Exception e) {
             e.printStackTrace();
             message = e.getMessage();
