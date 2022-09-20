@@ -65,14 +65,13 @@ public class MascotaService {
         return mascota;
     }
 
-    public Mascota getNombreApellido(String nombre, String apellido) {
+    public Mascota getNombreApellido(String nombre) {
         Mascota mascota = new Mascota();
         Session session = openSession();
         try {
             List<Mascota> list = session
-                    .createQuery("from Mascota where nombre = :nombre and apellido = :apellido", Mascota.class)
+                    .createQuery("from Mascota where nombre = :nombre", Mascota.class)
                     .setParameter("nombre", nombre)
-                    .setParameter("apellido", apellido)
                     .list();
             if (list.size() > 0) {
                 mascota = list.get(0);
@@ -105,7 +104,7 @@ public class MascotaService {
         try {
             session.merge(mascota);
             session.getTransaction().commit();
-            message = "Mascota actualizada con éxito";
+            message = "Mascota actualizada con exito";
         } catch (Exception e) {
             e.printStackTrace();
             message = e.getMessage();
