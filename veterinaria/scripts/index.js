@@ -1,17 +1,20 @@
-async function get_mascotas(url) {
+const URL_API = "http://localhost:8080/mascotas";
+let ID_MASCOTA = -1
+
+async function get_mascotas (url) {
   // Enviar petición
-  const resp = await fetch(url);
-  const mascotas = await resp.json();
-  return mascotas;
+  const resp = await fetch(url)
+  const mascotas = await resp.json()
+  return mascotas
 }
 
-function listar_mascotas(mascotas) {
+function listar_mascotas (mascotas) {
   // Referenciar tabla
-  const table = document.getElementById("table");
-  let tbody = "<tbody>";
+  const table = document.getElementById("tbody")
+  let tbody = ""
   // Iterar mascotas
   for (let i = 0; i < mascotas.length; i++) {
-    const m = mascotas[i];
+    const m = mascotas[i]
     tbody += `<tr> 
                 <td> 
                   <img src="${m.foto}"/>
@@ -21,27 +24,36 @@ function listar_mascotas(mascotas) {
                 <td>${m.raza}</td>
                 <td>${m.observacion}</td>
                 <td>
-                  <button class="btn btn-warning" onclick='update(${JSON.stringify(
-                    m
-                  )})'>Actualizar</button>
-                  <button class="btn btn-danger">Eliminar</button>
+                  <button class="btn btn-warning" onclick='update(${JSON.stringify(m)})'>Actualizar</button>
+                  <button class="btn btn-danger" onclick='btn_delete(${JSON.stringify(m)})' data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
                 </td>
-              </tr>`;
+              </tr>`
   }
-  tbody += "</tbody>";
-  table.innerHTML += tbody;
+  table.innerHTML = tbody
 }
 
-function update(mascota) {
-  //Redireccionar a formulario
-  window.location.href=`formulario.html?mascota=${JSON.stringify(mascota)}`;
-
+function btn_delete (mascota) {
+  document.getElementById("mascota-eliminar").innerText = mascota.nombre + " " + mascota.apellido
+  ID_MASCOTA = mascota.id
 }
 
-async function main() {
-  const url = "http://localhost:8080/mascotas";
-  const mascotas = await get_mascotas(url);
-  listar_mascotas(mascotas);
+async function delete_pet () {
+  // enviar petición
+  const resp = await fetch(`${URL_API}/${ID_MASCOTA}`, {
+    method: 'DELETE'
+  })
+  const text = await resp.text()
+  alert(text)
+  main()
 }
 
-main();
+function update (mascota) {
+  window.location.href = `formulario.html?mascota=${JSON.stringify(mascota)}`
+}
+
+async function main () {
+  const mascotas = await get_mascotas(URL_API)
+  listar_mascotas(mascotas)
+}
+
+main()
